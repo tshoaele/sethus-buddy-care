@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#7a9b76" />
+    <title>Sethu's Buddy Care</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <header class="top-bar">
+        <button class="icon-button" id="speakPromptButton" type="button" aria-label="Repeat prompt">
+          <span aria-hidden="true">♪</span>
+        </button>
+        <div class="title-block">
+          <p class="kicker">Speech practice</p>
+          <h1>Sethu's Buddy Care</h1>
+        </div>
+        <button class="icon-button" id="settingsButton" type="button" aria-label="Open grown-up settings">
+          <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <section class="progress-strip" aria-label="Progress">
+        <div>
+          <span class="metric-label">Stars</span>
+          <strong id="starCount">0</strong>
+        </div>
+        <div>
+          <span class="metric-label">Streak</span>
+          <strong id="streakCount">0</strong>
+        </div>
+        <div>
+          <span class="metric-label">Mode</span>
+          <strong id="modeLabel">Care</strong>
+        </div>
+      </section>
+
+      <section class="scene" aria-label="Game scene">
+        <div class="room" id="room">
+          <div class="wall-art flower-art" aria-hidden="true"></div>
+          <div class="window" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="buddy-wrap">
+            <div class="speech-bubble" id="buddyBubble">Can you say: I want food?</div>
+            <div class="buddy" aria-label="Friendly girl character">
+              <div class="hair"></div>
+              <div class="head">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+              <div class="neck"></div>
+              <div class="dress" id="buddyDress">
+                <span class="dress-mark"></span>
+              </div>
+              <div class="arm arm-left"></div>
+              <div class="arm arm-right"></div>
+              <div class="leg leg-left"></div>
+              <div class="leg leg-right"></div>
+              <div class="shoe shoe-left"></div>
+              <div class="shoe shoe-right"></div>
+              <div class="hat" id="buddyHat"></div>
+            </div>
+          </div>
+          <div class="reward-shelf" id="rewardShelf" aria-label="Collected stickers"></div>
+        </div>
+      </section>
+
+      <section class="prompt-panel" aria-label="Current speaking task">
+        <div class="prompt-card">
+          <div class="prompt-picture" id="promptPicture" aria-hidden="true">🍎</div>
+          <div>
+            <p class="prompt-helper">Say this with me</p>
+            <h2 id="targetPhrase">I want food</h2>
+            <p id="promptHint">Use a short request to help your buddy eat.</p>
+          </div>
+        </div>
+        <div class="heard-line" id="heardLine">Tap the microphone when Sethu is ready.</div>
+        <div class="action-row">
+          <button class="primary-action" id="listenButton" type="button">
+            <span class="mic-dot" aria-hidden="true"></span>
+            Listen
+          </button>
+          <button class="secondary-action" id="tapHelpButton" type="button">Help</button>
+        </div>
+      </section>
+
+      <nav class="mode-tabs" aria-label="Game modes">
+        <button class="mode-tab active" type="button" data-mode="care">Care</button>
+        <button class="mode-tab" type="button" data-mode="dress">Dress</button>
+        <button class="mode-tab" type="button" data-mode="animals">Animals</button>
+        <button class="mode-tab" type="button" data-mode="story">Story</button>
+        <button class="mode-tab" type="button" data-mode="music">Music</button>
+        <button class="mode-tab" type="button" data-mode="color">Color</button>
+      </nav>
+    </main>
+
+    <aside class="settings-panel" id="settingsPanel" aria-hidden="true">
+      <div class="settings-sheet" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="sheet-head">
+          <h2 id="settingsTitle">Grown-up settings</h2>
+          <button class="icon-button" id="closeSettingsButton" type="button" aria-label="Close settings">×</button>
+        </div>
+        <label class="setting-row">
+          <span>Speech match</span>
+          <select id="strictnessSelect">
+            <option value="gentle">Gentle: key words count</option>
+            <option value="phrase">Phrase: most words count</option>
+          </select>
+        </label>
+        <label class="setting-row">
+          <span>Voice speed</span>
+          <input id="voiceRate" type="range" min="0.65" max="1" step="0.05" value="0.82" />
+        </label>
+        <label class="toggle-row">
+          <input id="tapBackupToggle" type="checkbox" checked />
+          <span>Allow tap help when speaking is hard</span>
+        </label>
+        <p class="settings-note">
+          Speech recognition works best in Android Chrome on localhost or an installed web app.
+        </p>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
