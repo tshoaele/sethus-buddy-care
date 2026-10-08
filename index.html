@@ -38,12 +38,29 @@
         </div>
       </section>
 
+      <section class="progress-panel" id="progressPanel" aria-label="Progress towards next reward">
+        <span class="progress-label">Next</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-count" id="progressCount">0 / 10</span>
+      </section>
+
       <section class="scene" aria-label="Game scene">
         <div class="room" id="room">
           <div class="wall-art flower-art" aria-hidden="true"></div>
           <div class="window" aria-hidden="true">
             <span></span>
           </div>
+
+          <!-- Scene extras per mode -->
+          <div class="scene-extra scene-extra-care" aria-hidden="true"></div>
+          <div class="scene-extra scene-extra-dress" aria-hidden="true"></div>
+          <div class="scene-extra scene-extra-animals" aria-hidden="true"></div>
+          <div class="scene-extra scene-extra-story" aria-hidden="true"></div>
+          <div class="scene-extra scene-extra-music" aria-hidden="true"></div>
+          <div class="scene-extra scene-extra-color" aria-hidden="true"></div>
+
           <div class="buddy-wrap">
             <div class="speech-bubble" id="buddyBubble">Can you say: I want food?</div>
             <div class="buddy" aria-label="Friendly girl character">
