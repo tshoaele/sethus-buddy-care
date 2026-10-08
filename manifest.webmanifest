@@ -3,8 +3,8 @@
   "short_name": "Buddy Care",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f6f1e6",
-  "theme_color": "#7a9b76",
+  "background_color": "#edf7f6",
+  "theme_color": "#147d83",
   "description": "A gentle Android-friendly speech practice game for communication skills.",
   "icons": [
     {

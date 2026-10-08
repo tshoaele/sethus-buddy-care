@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#7a9b76" />
+    <meta name="theme-color" content="#147d83" />
     <title>Sethu's Buddy Care</title>
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
       <header class="top-bar">
         <button class="icon-button" id="speakPromptButton" type="button" aria-label="Repeat prompt">
-          <span aria-hidden="true">♪</span>
+          <i data-lucide="volume-2" aria-hidden="true"></i>
         </button>
         <div class="title-block">
-          <p class="kicker">Speech practice</p>
+          <p class="kicker">Hello, Sethu</p>
           <h1>Sethu's Buddy Care</h1>
         </div>
         <button class="icon-button" id="settingsButton" type="button" aria-label="Open grown-up settings">
-          <span aria-hidden="true">⚙</span>
+          <i data-lucide="settings" aria-hidden="true"></i>
         </button>
       </header>
 
@@ -29,7 +29,7 @@
           <strong id="starCount">0</strong>
         </div>
         <div>
-          <span class="metric-label">Streak</span>
+          <span class="metric-label">Today</span>
           <strong id="streakCount">0</strong>
         </div>
         <div>
@@ -39,7 +39,7 @@
       </section>
 
       <section class="progress-panel" id="progressPanel" aria-label="Progress towards next reward">
-        <span class="progress-label">Next</span>
+        <i data-lucide="star" aria-hidden="true"></i>
         <div class="progress-track">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -64,25 +64,13 @@
           <div class="buddy-wrap">
             <div class="speech-bubble" id="buddyBubble">Can you say: I want food?</div>
             <div class="buddy" aria-label="Friendly girl character">
-              <div class="hair"></div>
-              <div class="head">
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-                <span class="smile"></span>
-              </div>
-              <div class="neck"></div>
-              <div class="dress" id="buddyDress">
-                <span class="dress-mark"></span>
-              </div>
-              <div class="arm arm-left"></div>
-              <div class="arm arm-right"></div>
-              <div class="leg leg-left"></div>
-              <div class="leg leg-right"></div>
-              <div class="shoe shoe-left"></div>
-              <div class="shoe shoe-right"></div>
-              <div class="hat" id="buddyHat"></div>
+              <img class="buddy-art" src="assets/buddy.png" alt="Your smiling buddy with curly hair and a coral dress" />
+              <img class="buddy-art dress-layer" id="buddyDress" src="assets/buddy.png" alt="" aria-hidden="true" />
+              <img class="buddy-art shoes-layer" id="buddyShoes" src="assets/buddy.png" alt="" aria-hidden="true" />
+              <div class="hat" id="buddyHat" aria-hidden="true">👒</div>
             </div>
           </div>
+          <div class="scene-response" id="sceneResponse" aria-live="polite"></div>
           <div class="reward-shelf" id="rewardShelf" aria-label="Collected stickers"></div>
         </div>
       </section>
@@ -99,20 +87,21 @@
         <div class="heard-line" id="heardLine">Tap the microphone when Sethu is ready.</div>
         <div class="action-row">
           <button class="primary-action" id="listenButton" type="button">
-            <span class="mic-dot" aria-hidden="true"></span>
-            Listen
+            <i data-lucide="mic" aria-hidden="true"></i>
+            <span id="listenLabel">Speak</span>
           </button>
-          <button class="secondary-action" id="tapHelpButton" type="button">Help</button>
+          <button class="secondary-action" id="tapHelpButton" type="button"><i data-lucide="hand" aria-hidden="true"></i>Help</button>
+          <button class="next-action" id="nextButton" type="button" hidden>Next<i data-lucide="arrow-right" aria-hidden="true"></i></button>
         </div>
       </section>
 
       <nav class="mode-tabs" aria-label="Game modes">
-        <button class="mode-tab active" type="button" data-mode="care">Care</button>
-        <button class="mode-tab" type="button" data-mode="dress">Dress</button>
-        <button class="mode-tab" type="button" data-mode="animals">Animals</button>
-        <button class="mode-tab" type="button" data-mode="story">Story</button>
-        <button class="mode-tab" type="button" data-mode="music">Music</button>
-        <button class="mode-tab" type="button" data-mode="color">Color</button>
+        <button class="mode-tab active" type="button" data-mode="care"><i data-lucide="heart"></i>Care</button>
+        <button class="mode-tab" type="button" data-mode="dress"><i data-lucide="shirt"></i>Dress</button>
+        <button class="mode-tab" type="button" data-mode="animals"><i data-lucide="paw-print"></i>Animals</button>
+        <button class="mode-tab" type="button" data-mode="story"><i data-lucide="book-open"></i>Story</button>
+        <button class="mode-tab" type="button" data-mode="music"><i data-lucide="music-2"></i>Music</button>
+        <button class="mode-tab" type="button" data-mode="color"><i data-lucide="palette"></i>Color</button>
       </nav>
     </main>
 
@@ -120,7 +109,7 @@
       <div class="settings-sheet" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
         <div class="sheet-head">
           <h2 id="settingsTitle">Grown-up settings</h2>
-          <button class="icon-button" id="closeSettingsButton" type="button" aria-label="Close settings">×</button>
+          <button class="icon-button" id="closeSettingsButton" type="button" aria-label="Close settings"><i data-lucide="x"></i></button>
         </div>
         <label class="setting-row">
           <span>Speech match</span>
@@ -137,12 +126,11 @@
           <input id="tapBackupToggle" type="checkbox" checked />
           <span>Allow tap help when speaking is hard</span>
         </label>
-        <p class="settings-note">
-          Speech recognition works best in Android Chrome on localhost or an installed web app.
-        </p>
+        <label class="toggle-row"><input id="quietToggle" type="checkbox" /><span>Quiet sounds and gentle motion</span></label>
       </div>
     </aside>
 
+    <script src="assets/lucide.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

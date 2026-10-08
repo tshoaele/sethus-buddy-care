@@ -8,6 +8,9 @@ A gentle Android-friendly speech practice web game for Sethu.
 - Gives warm feedback with no losing state, no timers, and a tap-help backup.
 - Lets a grown-up adjust speech matching, voice speed, and tap support.
 - Runs as a static web app in Android Chrome.
+- Includes an original anime-inspired buddy and illustrated playroom.
+- Clothing requests update the outfit after success. Music requests play or stop a short melody.
+- Feedback stays visible until Next is tapped. Quiet mode turns off extra sounds and motion.
 
 ## Run locally
 
@@ -23,7 +26,13 @@ Then open:
 http://127.0.0.1:4173/
 ```
 
-Speech recognition works best in Android Chrome on `localhost` or when the site is installed to the home screen.
+On a phone, open the HTTPS website in Android Chrome. Adding it to the home screen does not bypass microphone permissions or the HTTPS requirement.
+
+## Checks
+
+Run `node --test tests/app.test.cjs` to check feedback, rewards, mode changes, clothing and word matching.
+
+Artwork prompts are documented in `assets/art-notes.md`.
 
 ## First therapy targets
 
